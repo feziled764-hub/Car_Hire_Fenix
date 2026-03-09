@@ -1,61 +1,403 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Fenix Car Hire | Home</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenix Car Hire | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: linear-gradient(135deg, #1a4a8d 0%, #0d3a6e 100%);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00A8E8;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: #00A8E8;
+        }
+
+        /* Hero Section with Slider */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .slider-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Slider Navigation Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .slider-dots .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(26, 74, 141, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #1a4a8d;
+        }
+
+        .slider-dots .dot.active {
+            background: #00A8E8;
+            border-color: #00A8E8;
+            transform: scale(1.2);
+        }
+
+        .slider-dots .dot:hover {
+            background: #1a4a8d;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            background: rgba(26, 74, 141, 0.95);
+            padding: 30px 70px;
+            margin-bottom: 25px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(26, 74, 141, 0.4);
+        }
+
+        .hero-title h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #1a4a8d;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.7);
+            padding: 10px 25px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .hero-content .features {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+            color: #1a4a8d;
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.7);
+            padding: 10px 25px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons .btn {
+            background: #00A8E8;
+            color: white;
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 20px rgba(0, 168, 232, 0.3);
+        }
+
+        .hero-buttons .btn:hover {
+            background: #0090c8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 168, 232, 0.5);
+        }
+
+        /* Floating Social Buttons */
+        .floating-social {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .floating-social a {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .floating-social .whatsapp {
+            background: #25D366;
+        }
+
+        .floating-social .whatsapp:hover {
+            background: #1da851;
+            transform: scale(1.1);
+        }
+
+        .floating-social .facebook {
+            background: #1877F2;
+        }
+
+        .floating-social .facebook:hover {
+            background: #0d65d9;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            nav ul li a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .hero-title h1 {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+
+            .hero-title {
+                padding: 20px 30px;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero-content .features {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                padding: 14px 28px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <nav>
-<div class="logo">FENIX CAR HIRE</div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="fleet.html">Fleet</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="Terms & Conditions.html">Terms & Conditions</a></li>
-</ul>
+    <div class="logo">FENIX CAR HIRE</div>
+    <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="book.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 </nav>
 
 <section class="hero">
-<div class="slider">
-<img src="images/car1.jpg" class="slide active">
-<img src="images/car2.jpg" class="slide">
-<img src="images/car3.jpg" class="slide">
-<img src="images/car4.jpg" class="slide">
-<img src="images/car5.jpg" class="slide active">
-<img src="images/car6.jpg" class="slide">
-<img src="images/car7.jpg" class="slide">
-<img src="images/car8.jpg" class="slide">
-<img src="images/car9.jpg" class="slide active">
-<img src="images/car10.jpg" class="slide">
-<img src="images/car11.jpg" class="slide">
-<img src="images/car12.jpg" class="slide">
+    <!-- Image Slider -->
+    <div class="slider-container">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=1920&q=80');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1920&q=80');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1606611013016-969c19ba27bb?w=1920&q=80');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1920&q=80');"></div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1563720223185-11003d516935?w=1920&q=80');"></div>
+    </div>
 
-<img src="images/car14.jpg" class="slide">
+    <!-- Slider Dots -->
+    <div class="slider-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+        <span class="dot" data-slide="4"></span>
+    </div>
 
-<img src="images/car16.jpg" class="slide">
-</div>
-
-<div class="hero-text">
-<h1 class="main-company-name">FENIX CAR HIRE</h1>
-<h2>Drive Your Dream Forward</h2>
-<p>Reliable • Professional • Convenient</p>
-<button onclick="location.href='book.html'">Book Now</button>
-<button onclick="location.href='about.html'">Know More About Us</button>
-<button onclick="location.href='contact.html'">Contact Us Now</button>
-</div>
-
-</div>
-</div>
+    <!-- Hero Content -->
+    <div class="hero-content">
+        <div class="hero-title">
+            <h1>FENIX CAR HIRE</h1>
+        </div>
+        <p class="tagline">Drive Your Dream Forward</p>
+        <p class="features">Reliable &bull; Professional &bull; Convenient</p>
+        <div class="hero-buttons">
+            <a href="book.html" class="btn">Book Now</a>
+            <a href="about.html" class="btn">Know More About Us</a>
+            <a href="contact.html" class="btn">Contact Us Now</a>
+        </div>
+    </div>
 </section>
-<p>Welcome to our car rental service where convenience, reliability, and affordabity come together. Whether you need a vehicle for a short trip, business travel, or a family journey, we provide a range of vehicles to suit your needs.</p>
-<footer>
-© 2026 Fenix Car Hire | All Rights Reserved
-</footer>
 
-<script src="script.js"></script>
+<!-- Floating Social Buttons -->
+<div class="floating-social">
+    <a href="https://wa.me/26876829797" target="_blank" class="whatsapp" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://facebook.com/fenix.carhire" target="_blank" class="facebook" title="Follow on Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
+
+<script>
+    // Image Slider
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            dots[i].classList.remove('active');
+        });
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        let next = currentSlide + 1;
+        if (next >= slides.length) next = 0;
+        showSlide(next);
+    }
+
+    // Auto-advance slides every 5 seconds
+    function startSlider() {
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Dot click handlers
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            showSlide(index);
+            startSlider();
+        });
+    });
+
+    // Start the slider
+    startSlider();
+</script>
+
 </body>
 </html>
-

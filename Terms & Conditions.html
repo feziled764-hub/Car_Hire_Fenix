@@ -1,226 +1,304 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Fenix Car Hire | Terms & Conditions</title>
-<link rel="stylesheet" href="style.css">
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | Fenix Car Hire</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --dark: #1e293b;
-            --light-bg: #f8fafc;
-            --accent: #3b82f6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions | Fenix Car Hire</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+.page-header {
+    background: linear-gradient(135deg, rgba(26, 74, 141, 0.9), rgba(13, 47, 95, 0.95)), 
+                url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 5%;
+    text-align: center;
+    color: white;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+.page-header h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
 
-        body {
-            background-color: var(--light-bg);
-            color: var(--dark);
-            line-height: 1.6;
-        }
+.page-header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
 
-        /* Modern Navigation */
-        header {
-            background: white;
-            padding: 1rem 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+.terms-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 5%;
+}
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
+.terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+.term-card {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #00A8E8;
+    transition: all 0.3s ease;
+}
 
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+.term-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+}
 
-        nav a:hover {
-            color: var(--primary);
-        }
+.term-card h3 {
+    color: #1a4a8d;
+    font-size: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 41, 59, 0.9)), 
-                        url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 30px 10%;
-            text-align: center;
-        }
+.term-card h3 i {
+    color: #00A8E8;
+    font-size: 24px;
+}
 
-        .hero h2 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
+.term-card p {
+    color: #666;
+    line-height: 1.7;
+}
 
-        /* Terms Grid */
-        .container {
-            max-width: 1100px;
-            margin: -40px auto 60px; /* Overlaps hero slightly */
-            padding: 0 20px;
-        }
+.term-card ul {
+    list-style: none;
+    margin-top: 15px;
+}
 
-        .terms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+.term-card ul li {
+    padding: 8px 0;
+    color: #555;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+}
 
-        .term-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border-top: 4px solid var(--primary);
-        }
+.term-card ul li i {
+    color: #00A8E8;
+    margin-top: 4px;
+}
 
-        .term-card:hover {
-            transform: translateY(-5px);
-        }
+.agreement-box {
+    background: linear-gradient(135deg, #1a4a8d 0%, #0d2f5f 100%);
+    color: white;
+    text-align: center;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 40px;
+}
 
-        .term-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.agreement-box h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
 
-        .agreement-box {
-            grid-column: 1 / -1;
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 40px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
+.agreement-box p {
+    font-size: 17px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
 
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-top: 20px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
+.important-note {
+    background: #fff8e6;
+    border-left: 4px solid #f59e0b;
+    padding: 25px 30px;
+    border-radius: 0 12px 12px 0;
+    margin: 40px 0;
+}
 
-        .btn:hover {
-            background: #1d4ed8;
-        }
+.important-note h4 {
+    color: #b45309;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: #94a3b8;
-            padding: 40px 10%;
-            text-align: center;
-            margin-top: auto;
-        }
+.important-note p {
+    color: #92400e;
+    line-height: 1.6;
+}
 
-        @media (max-width: 768px) {
-            nav { display: none; } /* Hide menu on small screens for simplicity */
-            .hero h2 { font-size: 1.8rem; }
-        }
-    </style>
-
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 32px;
+    }
+    
+    .terms-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 <body>
 
 <nav>
-<div class="logo">FENIX CAR HIRE</div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="fleet.html">Fleet</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="Terms & Conditions.html">Terms & Conditions</a></li>
-</ul>
+    <div class="logo">FENIX CAR HIRE</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Terms & Conditions.html">Terms</a></li>
+    </ul>
 </nav>
-    </header>
 
-    <section class="hero">
-        <h2>Terms & Conditions</h2>
-        <p>Everything you need to know for a smooth journey with Fenix.</p>
-    </section>
+<section class="page-header">
+    <h1>Terms & Conditions</h1>
+    <p>Everything you need to know for a smooth rental experience with Fenix</p>
+</section>
 
-    <main class="container">
-        <div class="terms-grid">
-            <div class="term-card">
-                <h3>👤 Driver Requirements</h3>
-                <p>Safety first. All drivers must be 21+ years old and hold a valid, unexpired driver's license.</p>
-            </div>
+<main class="terms-container">
+    <div class="terms-grid">
+        <div class="term-card">
+            <h3><i class="fas fa-user-check"></i> Driver Requirements</h3>
+            <p>To ensure safety for all, drivers must meet the following criteria:</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Minimum age of 21 years</li>
+                <li><i class="fas fa-check"></i> Valid, unexpired driver's license</li>
+                <li><i class="fas fa-check"></i> Minimum 2 years driving experience</li>
+                <li><i class="fas fa-check"></i> Valid identification document</li>
+            </ul>
+        </div>
 
-            <div class="term-card">
-                <h3>🚗 Vehicle Use</h3>
-                <p>Our fleet is for your enjoyment. We kindly ask you to avoid reckless driving or illegal activities.</p>
-            </div>
+        <div class="term-card">
+            <h3><i class="fas fa-car-side"></i> Vehicle Use Policy</h3>
+            <p>Our vehicles must be used responsibly:</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Personal or business use only</li>
+                <li><i class="fas fa-check"></i> No reckless or dangerous driving</li>
+                <li><i class="fas fa-check"></i> No illegal activities permitted</li>
+                <li><i class="fas fa-check"></i> No smoking inside vehicles</li>
+            </ul>
+        </div>
 
-            <div class="term-card">
-                <h3>⛽ Fuel Policy</h3>
-                <p>Simple and fair: please return the vehicle with the same amount of fuel it had at pickup.</p>
-            </div>
+        <div class="term-card">
+            <h3><i class="fas fa-gas-pump"></i> Fuel Policy</h3>
+            <p>Our fuel policy is simple and fair:</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Vehicles provided with full tank</li>
+                <li><i class="fas fa-check"></i> Return with same fuel level</li>
+                <li><i class="fas fa-check"></i> Refueling charge if tank not full</li>
+                <li><i class="fas fa-check"></i> Use recommended fuel type only</li>
+            </ul>
+        </div>
 
-            <div class="term-card">
-                <h3>🛠️ Damage & Care</h3>
-                <p>The renter is responsible for the vehicle's condition. We recommend a quick walk-around at pickup!</p>
-            </div>
+        <div class="term-card">
+            <h3><i class="fas fa-tools"></i> Damage & Liability</h3>
+            <p>Understanding your responsibilities:</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Walk-around inspection at pickup</li>
+                <li><i class="fas fa-check"></i> Report any damage immediately</li>
+                <li><i class="fas fa-check"></i> Renter liable for unreported damage</li>
+                <li><i class="fas fa-check"></i> Insurance options available</li>
+            </ul>
+        </div>
 
-            <div class="term-card">
-                <h3>⏰ Late Returns</h3>
-                <p>Running late? Let us know! Late returns may incur additional hourly or daily charges.</p>
-            </div>
+        <div class="term-card">
+            <h3><i class="fas fa-clock"></i> Late Returns</h3>
+            <p>Please be mindful of return times:</p>
+            <ul>
+                <li><i class="fas fa-check"></i> 1-hour grace period allowed</li>
+                <li><i class="fas fa-check"></i> Contact us if running late</li>
+                <li><i class="fas fa-check"></i> Hourly charges may apply after grace</li>
+                <li><i class="fas fa-check"></i> Full day rate after 4 hours late</li>
+            </ul>
+        </div>
 
-            <div class="agreement-box">
-                <h3>Ready to hit the road?</h3>
-                <p>By proceeding with your booking, you agree to the terms mentioned above.</p>
-                <a href="#" class="btn">View Our Fleet</a>
+        <div class="term-card">
+            <h3><i class="fas fa-ban"></i> Cancellation Policy</h3>
+            <p>Flexible cancellation options:</p>
+            <ul>
+                <li><i class="fas fa-check"></i> Free cancellation 24+ hours before</li>
+                <li><i class="fas fa-check"></i> 50% charge within 24 hours</li>
+                <li><i class="fas fa-check"></i> Full charge for no-shows</li>
+                <li><i class="fas fa-check"></i> Modifications subject to availability</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="important-note">
+        <h4><i class="fas fa-exclamation-triangle"></i> Important Notice</h4>
+        <p>By proceeding with your booking, you acknowledge that you have read, understood, and agree to abide by all terms and conditions outlined above. Fenix Car Hire reserves the right to refuse service or terminate rentals for violations of these terms.</p>
+    </div>
+
+    <div class="agreement-box">
+        <h3>Ready to Book Your Vehicle?</h3>
+        <p>By proceeding with your booking, you agree to the terms mentioned above.</p>
+        <div class="social-buttons">
+            <a href="fleet.html" class="btn" style="background: #00A8E8;">
+                <i class="fas fa-car"></i> View Our Fleet
+            </a>
+            <a href="book.html" class="btn" style="background: white; color: #1a4a8d;">
+                <i class="fas fa-calendar-check"></i> Book Now
+            </a>
+            <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Questions? WhatsApp Us
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Fenix Car Hire</h3>
+            <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="fleet.html">Vehicle Fleet</a>
+            <a href="Terms & Conditions.html">Terms & Conditions</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Litsemba Street, Lilanga Complex<br>Sidwashini, Mbabane</p>
+            <p>Phone: +268 2422 1045</p>
+            <p>Cell: +268 7682 9797</p>
+        </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-buttons" style="justify-content: flex-start; margin-top: 0;">
+                <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/fenix.carhire" class="facebook-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
             </div>
         </div>
-    </main>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Fenix Car Hire | All Rights Reserved</p>
+    </div>
+</footer>
 
-    <footer>
-        <p>&copy; 2026 Fenix Car Hire. Built for the road ahead.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">All Rights Reserved | Privacy Policy | Cookie Policy</p>
-    </footer>
+<!-- Floating Social Buttons -->
+<div class="floating-social">
+    <a href="https://wa.me/26876829797" class="whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://facebook.com/fenix.carhire" class="facebook" target="_blank" title="Follow on Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
 
 </body>
 </html>

@@ -1,209 +1,374 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services | Fenix Car Hire</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f4f4f4;
+.page-header {
+    background: linear-gradient(135deg, rgba(26, 74, 141, 0.9), rgba(13, 47, 95, 0.95)), 
+                url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 5%;
+    text-align: center;
+    color: white;
 }
 
-/* HEADER */
-
-header{
-background:#1a4a8d;
-color:white;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-box-shadow:0px 2px 10px rgba(0,0,0,0.2);
+.page-header h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-padding:8px 14px;
-border-radius:6px;
-transition:0.3s;
+.page-header p {
+    font-size: 18px;
+    opacity: 0.9;
 }
 
-nav a:hover{
-background:white;
-color:#1a4a8d;
+.services-section {
+    padding: 80px 5%;
+    background: #f8f9fc;
 }
 
-/* PAGE HEADER */
-
-.page-header{
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7");
-background-size:cover;
-background-position:center;
-padding:120px 20px;
-text-align:center;
-color:white;
+.services-section h2 {
+    text-align: center;
+    color: #1a4a8d;
+    font-size: 32px;
+    margin-bottom: 50px;
 }
 
-.page-header h1{
-font-size:50px;
-margin-bottom:10px;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-/* SERVICES */
-
-.services{
-padding:70px 40px;
+.service-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
+.service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
 }
 
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0px 10px 30px rgba(0,0,0,0.08);
-text-align:center;
-transition:0.4s;
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-.card:hover{
-transform:translateY(-12px);
-box-shadow:0px 15px 40px rgba(0,0,0,0.18);
+.service-card-content {
+    padding: 30px;
 }
 
-.card img{
-width:100%;
-height:190px;
-object-fit:cover;
+.service-card h3 {
+    color: #1a4a8d;
+    font-size: 22px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.card-content{
-padding:25px;
+.service-card h3 i {
+    color: #00A8E8;
 }
 
-.card h3{
-color:#1a4a8d;
-margin-bottom:15px;
-}
-.btn{
-background:#1a4a8d;
-color:white;
-padding:12px 20px;
-text-decoration:none;
-border-radius:6px;
-display:inline-block;
-margin-top:10px;
-/* FOOTER */
-
-footer{
-background:blue;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:40px;
+.service-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-header{
-flex-direction:column;
-text-align:center;
+.service-card ul {
+    list-style: none;
+    margin-bottom: 20px;
 }
 
-nav{
-margin-top:15px;
+.service-card ul li {
+    padding: 8px 0;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.page-header h1{
-font-size:35px;
+.service-card ul li i {
+    color: #00A8E8;
+    font-size: 14px;
 }
 
+.service-card .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #1a4a8d, #00A8E8);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
+.service-card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 168, 232, 0.3);
+}
+
+.why-choose {
+    padding: 80px 5%;
+    background: white;
+}
+
+.why-choose h2 {
+    text-align: center;
+    color: #1a4a8d;
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reason-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.reason-card .icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1a4a8d, #00A8E8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 32px;
+}
+
+.reason-card h3 {
+    color: #1a4a8d;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.reason-card p {
+    color: #666;
+    font-size: 15px;
+}
+
+.cta-banner {
+    background: linear-gradient(135deg, #1a4a8d 0%, #0d2f5f 100%);
+    padding: 60px 5%;
+    text-align: center;
+    color: white;
+}
+
+.cta-banner h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.cta-banner p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 32px;
+    }
+}
 </style>
 </head>
 <body>
 
 <nav>
-<div class="logo">FENIX CAR HIRE</div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="fleet.html">Fleet</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="Terms & Conditions.html">Terms & Conditions</a></li>
-</ul>
+    <div class="logo">FENIX CAR HIRE</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="book.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 </nav>
 
-<section class="section">
-<h1>Our Premium Services</h1>
-<p>Reliable, comfortable and professional vehicle rental solutions</p>
-
+<section class="page-header">
+    <h1>Our Services</h1>
+    <p>Reliable, comfortable, and professional vehicle rental solutions</p>
 </section>
 
-
-<section class="services">
-
-<div class="grid">
-
-<div class="card">
-<img src="images/car2.jpg">
-<div class="card-content">
-<h3>Self-Drive Vehicle Rental</h3>
-<p>Flexible rental options for individuals and businesses who prefer driving themselves.</p>
-</div>
-</div>
-
-
-<div class="card">
-<img src="images/car9.jpg">
-<div class="card-content">
-<h3>Chauffeur & Executive Transport</h3>
-<p>Professional driver services for VIP and corporate clients.</p>
-</div>
-</div>
-
-
-<div class="card">
-<img src="images/car14.jpg">
-<div class="card-content">
-<h3>Corporate Fleet Solutions</h3>
-<p>Long-term leasing packages for companies and organizations.</p>
-</div>
-</div>
-
-
-<div class="card">
-<img src="images/car12.jpg">
-<div class="card-content">
-<h3>Airport Transfers</h3>
-<p>Reliable pickup and drop-off airport services.</p>
-</div>
-</div>
-
-</div>
-
+<section class="services-section">
+    <h2><i class="fas fa-concierge-bell" style="color: #00A8E8;"></i> What We Offer</h2>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80" alt="Self-Drive Vehicle">
+            <div class="service-card-content">
+                <h3><i class="fas fa-car"></i> Self-Drive Rental</h3>
+                <p>Flexible rental options for individuals and businesses who prefer driving themselves.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Daily, weekly, and monthly rates</li>
+                    <li><i class="fas fa-check"></i> Wide vehicle selection</li>
+                    <li><i class="fas fa-check"></i> 24/7 roadside assistance</li>
+                </ul>
+                <a href="book.html" class="btn">Book Now</a>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="Chauffeur Service">
+            <div class="service-card-content">
+                <h3><i class="fas fa-user-tie"></i> Chauffeur Services</h3>
+                <p>Professional driver services for VIP clients, executives, and special occasions.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Experienced, vetted drivers</li>
+                    <li><i class="fas fa-check"></i> Executive vehicles available</li>
+                    <li><i class="fas fa-check"></i> Punctual and discreet service</li>
+                </ul>
+                <a href="book.html" class="btn">Book Now</a>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&q=80" alt="Corporate Fleet">
+            <div class="service-card-content">
+                <h3><i class="fas fa-building"></i> Corporate Solutions</h3>
+                <p>Long-term leasing packages tailored for companies and organizations.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Fleet management support</li>
+                    <li><i class="fas fa-check"></i> Competitive corporate rates</li>
+                    <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                </ul>
+                <a href="contact.html" class="btn">Get Quote</a>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80" alt="Airport Transfer">
+            <div class="service-card-content">
+                <h3><i class="fas fa-plane-arrival"></i> Airport Transfers</h3>
+                <p>Reliable pickup and drop-off services at King Mswati III International Airport.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Flight tracking service</li>
+                    <li><i class="fas fa-check"></i> Meet and greet available</li>
+                    <li><i class="fas fa-check"></i> Comfortable transfers</li>
+                </ul>
+                <a href="book.html" class="btn">Book Now</a>
+            </div>
+        </div>
+    </div>
 </section>
 
-<a href="book.html" class="btn">Book Now</a>
+<section class="why-choose">
+    <h2><i class="fas fa-award" style="color: #00A8E8;"></i> Why Choose Fenix?</h2>
+    
+    <div class="reasons-grid">
+        <div class="reason-card">
+            <div class="icon"><i class="fas fa-car-side"></i></div>
+            <h3>Quality Fleet</h3>
+            <p>Well-maintained vehicles that are regularly serviced for your safety.</p>
+        </div>
+        
+        <div class="reason-card">
+            <div class="icon"><i class="fas fa-tags"></i></div>
+            <h3>Best Rates</h3>
+            <p>Competitive pricing with no hidden fees or surprise charges.</p>
+        </div>
+        
+        <div class="reason-card">
+            <div class="icon"><i class="fas fa-headset"></i></div>
+            <h3>24/7 Support</h3>
+            <p>Round-the-clock customer support for peace of mind.</p>
+        </div>
+        
+        <div class="reason-card">
+            <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h3>Nationwide</h3>
+            <p>Service coverage across all regions of Eswatini.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta-banner">
+    <h2>Ready to Get Started?</h2>
+    <p>Book your vehicle today or contact us for custom solutions.</p>
+    <div class="social-buttons">
+        <a href="book.html" class="btn" style="background: #00A8E8;">
+            <i class="fas fa-calendar-check"></i> Book Now
+        </a>
+        <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp Us
+        </a>
+        <a href="https://facebook.com/fenix.carhire" class="facebook-btn" target="_blank">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+    </div>
+</section>
+
 <footer>
-<p>© 2024 Fenix Car Hire | Drive Your Dream Forward</p>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Fenix Car Hire</h3>
+            <p>Your trusted partner for reliable vehicle rental services in the Kingdom of Eswatini.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="fleet.html">Vehicle Fleet</a>
+            <a href="Terms & Conditions.html">Terms & Conditions</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Litsemba Street, Lilanga Complex<br>Sidwashini, Mbabane</p>
+            <p>Phone: +268 2422 1045</p>
+            <p>Cell: +268 7682 9797</p>
+        </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-buttons" style="justify-content: flex-start; margin-top: 0;">
+                <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/fenix.carhire" class="facebook-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Fenix Car Hire | All Rights Reserved</p>
+    </div>
 </footer>
+
+<!-- Floating Social Buttons -->
+<div class="floating-social">
+    <a href="https://wa.me/26876829797" class="whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://facebook.com/fenix.carhire" class="facebook" target="_blank" title="Follow on Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
 
 </body>
 </html>
