@@ -12,7 +12,7 @@
                 url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80');
     background-size: cover;
     background-position: center;
-    padding: 100px 5%;
+    padding: 120px 5% 80px;
     text-align: center;
     color: white;
 }
@@ -25,6 +25,8 @@
 .page-header p {
     font-size: 18px;
     opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .fleet-section {
@@ -35,15 +37,23 @@
 .fleet-section h2 {
     text-align: center;
     color: #1a4a8d;
-    font-size: 32px;
-    margin-bottom: 50px;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.fleet-section > p {
+    text-align: center;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 18px;
 }
 
 .fleet-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 35px;
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -51,19 +61,42 @@
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     transition: all 0.4s ease;
 }
 
 .fleet-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+    transform: translateY(-12px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.fleet-card .image-container {
+    position: relative;
+    overflow: hidden;
 }
 
 .fleet-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.fleet-card:hover img {
+    transform: scale(1.08);
+}
+
+.fleet-card .category-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #1a4a8d, #00A8E8);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .fleet-card-content {
@@ -72,30 +105,37 @@
 
 .fleet-card h3 {
     color: #1a4a8d;
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 12px;
 }
 
 .fleet-card p {
     color: #666;
     margin-bottom: 20px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .fleet-card .features {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .fleet-card .feature {
     background: #f0f7ff;
     color: #1a4a8d;
-    padding: 6px 14px;
+    padding: 8px 14px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fleet-card .feature i {
+    color: #00A8E8;
 }
 
 .fleet-card .btn {
@@ -118,25 +158,48 @@
 
 .cta-banner {
     background: linear-gradient(135deg, #1a4a8d 0%, #0d2f5f 100%);
-    padding: 60px 5%;
+    padding: 80px 5%;
     text-align: center;
     color: white;
 }
 
 .cta-banner h2 {
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 15px;
 }
 
 .cta-banner p {
     font-size: 18px;
     opacity: 0.9;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-banner .btn-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-banner .btn-group a {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {
     .page-header h1 {
         font-size: 32px;
+    }
+    
+    .fleet-section h2 {
+        font-size: 28px;
     }
 }
 </style>
@@ -149,26 +212,31 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="fleet.html" class="active">Fleet</a></li>
+        <li><a href="book.html">Book Now</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="Terms & Conditions.html">Terms</a></li>
     </ul>
 </nav>
 
 <section class="page-header">
-    <h1>Our Vehicle Fleet</h1>
-    <p>Choose from our premium range of well-maintained, reliable vehicles</p>
+    <h1><i class="fas fa-car-side"></i> Our Vehicle Fleet</h1>
+    <p>Choose from our wide range of well-maintained, reliable vehicles for any occasion</p>
 </section>
 
 <section class="fleet-section">
-    <h2><i class="fas fa-car" style="color: #00A8E8;"></i> Available Vehicles</h2>
+    <h2>Available Vehicles</h2>
+    <p>Browse our selection of quality vehicles ready for your next journey</p>
     
     <div class="fleet-grid">
+        <!-- Economy Sedans -->
         <div class="fleet-card">
-            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80" alt="Economy Sedan">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80" alt="Toyota Corolla">
+                <span class="category-tag">Sedan</span>
+            </div>
             <div class="fleet-card-content">
-                <h3>Economy Sedan</h3>
-                <p>Fuel-efficient and affordable, perfect for daily commutes and city driving.</p>
+                <h3>Toyota Corolla</h3>
+                <p>Reliable and fuel-efficient sedan, perfect for city driving and daily commutes.</p>
                 <div class="features">
                     <span class="feature"><i class="fas fa-gas-pump"></i> Fuel Efficient</span>
                     <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
@@ -179,12 +247,50 @@
         </div>
         
         <div class="fleet-card">
-            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" alt="SUV Vehicle">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?w=600&q=80" alt="Honda Civic">
+                <span class="category-tag">Sedan</span>
+            </div>
             <div class="fleet-card-content">
-                <h3>SUV Vehicle</h3>
-                <p>Spacious and comfortable, ideal for family trips and long-distance travel.</p>
+                <h3>Honda Civic</h3>
+                <p>Sporty and comfortable sedan with excellent handling and modern features.</p>
                 <div class="features">
-                    <span class="feature"><i class="fas fa-mountain"></i> All-Terrain</span>
+                    <span class="feature"><i class="fas fa-tachometer-alt"></i> Sporty</span>
+                    <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
+                    <span class="feature"><i class="fas fa-bluetooth"></i> Bluetooth</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&q=80" alt="Hyundai Elantra">
+                <span class="category-tag">Sedan</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>Hyundai Elantra</h3>
+                <p>Modern sedan with sleek design and advanced safety features.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-shield-alt"></i> Safe</span>
+                    <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
+                    <span class="feature"><i class="fas fa-snowflake"></i> A/C</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+
+        <!-- SUVs -->
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" alt="Toyota Fortuner">
+                <span class="category-tag">SUV</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>Toyota Fortuner</h3>
+                <p>Powerful SUV built for adventure and family trips with spacious interior.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-mountain"></i> 4x4</span>
                     <span class="feature"><i class="fas fa-users"></i> 7 Seats</span>
                     <span class="feature"><i class="fas fa-suitcase"></i> Large Boot</span>
                 </div>
@@ -193,10 +299,48 @@
         </div>
         
         <div class="fleet-card">
-            <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80" alt="Double Cab Pickup">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1606611013016-969c19ba27bb?w=600&q=80" alt="Ford Everest">
+                <span class="category-tag">SUV</span>
+            </div>
             <div class="fleet-card-content">
-                <h3>Double Cab Pickup</h3>
-                <p>Rugged and versatile, perfect for work sites and outdoor adventures.</p>
+                <h3>Ford Everest</h3>
+                <p>Rugged SUV perfect for off-road adventures and long distance travel.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-mountain"></i> All-Terrain</span>
+                    <span class="feature"><i class="fas fa-users"></i> 7 Seats</span>
+                    <span class="feature"><i class="fas fa-cog"></i> Automatic</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80" alt="Nissan X-Trail">
+                <span class="category-tag">SUV</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>Nissan X-Trail</h3>
+                <p>Versatile crossover SUV ideal for both city driving and weekend getaways.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-road"></i> Versatile</span>
+                    <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
+                    <span class="feature"><i class="fas fa-gas-pump"></i> Efficient</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+
+        <!-- Pickups -->
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80" alt="Toyota Hilux">
+                <span class="category-tag">Pickup</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>Toyota Hilux Double Cab</h3>
+                <p>Legendary reliability and toughness for work and outdoor adventures.</p>
                 <div class="features">
                     <span class="feature"><i class="fas fa-truck"></i> Heavy Duty</span>
                     <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
@@ -207,14 +351,86 @@
         </div>
         
         <div class="fleet-card">
-            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="Luxury Executive">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Ford Ranger">
+                <span class="category-tag">Pickup</span>
+            </div>
             <div class="fleet-card-content">
-                <h3>Luxury Executive</h3>
-                <p>Premium comfort and style for VIP clients and special occasions.</p>
+                <h3>Ford Ranger Double Cab</h3>
+                <p>Powerful pickup with modern features and excellent towing capacity.</p>
                 <div class="features">
-                    <span class="feature"><i class="fas fa-star"></i> Premium</span>
+                    <span class="feature"><i class="fas fa-truck"></i> Tow Ready</span>
+                    <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
+                    <span class="feature"><i class="fas fa-mountain"></i> 4x4</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1612544448445-b8232cff3b6c?w=600&q=80" alt="Isuzu D-Max">
+                <span class="category-tag">Pickup</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>Isuzu D-Max</h3>
+                <p>Durable workhorse with excellent fuel economy and payload capacity.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-gas-pump"></i> Diesel</span>
+                    <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
+                    <span class="feature"><i class="fas fa-weight-hanging"></i> High Payload</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+
+        <!-- Luxury & Executive -->
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="Mercedes E-Class">
+                <span class="category-tag">Luxury</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>Mercedes E-Class</h3>
+                <p>Executive sedan with exceptional comfort and sophisticated styling.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-star"></i> Executive</span>
                     <span class="feature"><i class="fas fa-couch"></i> Leather</span>
                     <span class="feature"><i class="fas fa-wifi"></i> Connected</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="BMW 5 Series">
+                <span class="category-tag">Luxury</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>BMW 5 Series</h3>
+                <p>The ultimate driving machine with powerful performance and luxury features.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-tachometer-alt"></i> Performance</span>
+                    <span class="feature"><i class="fas fa-couch"></i> Leather</span>
+                    <span class="feature"><i class="fas fa-music"></i> Premium Audio</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=600&q=80" alt="Audi A6">
+                <span class="category-tag">Luxury</span>
+            </div>
+            <div class="fleet-card-content">
+                <h3>Audi A6</h3>
+                <p>Sophisticated luxury sedan with cutting-edge technology and refined comfort.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-microchip"></i> High-Tech</span>
+                    <span class="feature"><i class="fas fa-couch"></i> Leather</span>
+                    <span class="feature"><i class="fas fa-cog"></i> Quattro AWD</span>
                 </div>
                 <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
             </div>
@@ -224,12 +440,12 @@
 
 <section class="cta-banner">
     <h2>Need Help Choosing?</h2>
-    <p>Our team is ready to help you find the perfect vehicle for your needs.</p>
-    <div class="social-buttons">
+    <p>Our team is ready to help you find the perfect vehicle for your needs and budget.</p>
+    <div class="btn-group">
         <a href="https://wa.me/26876829797?text=Hello%20Fenix,%20I%20need%20help%20choosing%20a%20vehicle." class="whatsapp-btn" target="_blank">
             <i class="fab fa-whatsapp"></i> Chat on WhatsApp
         </a>
-        <a href="contact.html" class="btn" style="background: white; color: #1a4a8d;">
+        <a href="contact.html" style="background: white; color: #1a4a8d;">
             <i class="fas fa-phone"></i> Contact Us
         </a>
     </div>
@@ -239,7 +455,7 @@
     <div class="footer-content">
         <div class="footer-section">
             <h3>Fenix Car Hire</h3>
-            <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini.</p>
+            <p>Your trusted partner for reliable vehicle rental services in the Kingdom of Eswatini.</p>
         </div>
         <div class="footer-section">
             <h3>Quick Links</h3>
@@ -250,9 +466,9 @@
         </div>
         <div class="footer-section">
             <h3>Contact Us</h3>
-            <p>Litsemba Street, Lilanga Complex<br>Sidwashini, Mbabane</p>
-            <p>Phone: +268 2422 1045</p>
-            <p>Cell: +268 7682 9797</p>
+            <p><i class="fas fa-map-marker-alt"></i> Litsemba Street, Lilanga Complex, Sidwashini, Mbabane</p>
+            <p><i class="fas fa-phone"></i> +268 2422 1045</p>
+            <p><i class="fas fa-mobile-alt"></i> +268 7682 9797</p>
         </div>
         <div class="footer-section">
             <h3>Connect With Us</h3>

@@ -210,8 +210,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="fleet.html">Fleet</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="Terms & Conditions.html">Terms</a></li>
+        <li><a href="book.html">Book Now</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
 </nav>
 
@@ -301,10 +301,26 @@
             
             <select name="vehicle_type">
                 <option value="">Select Vehicle Type</option>
-                <option value="Economy Sedan">Economy Sedan</option>
-                <option value="SUV">SUV</option>
-                <option value="Luxury Executive">Luxury Executive</option>
-                <option value="Double Cab Pickup">Double Cab Pickup</option>
+                <optgroup label="Sedans">
+                    <option value="Toyota Corolla">Toyota Corolla</option>
+                    <option value="Honda Civic">Honda Civic</option>
+                    <option value="Hyundai Elantra">Hyundai Elantra</option>
+                </optgroup>
+                <optgroup label="SUVs">
+                    <option value="Toyota Fortuner">Toyota Fortuner</option>
+                    <option value="Ford Everest">Ford Everest</option>
+                    <option value="Nissan X-Trail">Nissan X-Trail</option>
+                </optgroup>
+                <optgroup label="Pickups">
+                    <option value="Toyota Hilux">Toyota Hilux Double Cab</option>
+                    <option value="Ford Ranger">Ford Ranger Double Cab</option>
+                    <option value="Isuzu D-Max">Isuzu D-Max</option>
+                </optgroup>
+                <optgroup label="Luxury">
+                    <option value="Mercedes E-Class">Mercedes E-Class</option>
+                    <option value="BMW 5 Series">BMW 5 Series</option>
+                    <option value="Audi A6">Audi A6</option>
+                </optgroup>
             </select>
             
             <textarea rows="4" name="message" placeholder="Your message (Include rental dates and any special requirements)"></textarea>
@@ -355,7 +371,7 @@
     <div class="footer-content">
         <div class="footer-section">
             <h3>Fenix Car Hire</h3>
-            <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini.</p>
+            <p>Your trusted partner for reliable vehicle rental services in the Kingdom of Eswatini.</p>
         </div>
         <div class="footer-section">
             <h3>Quick Links</h3>

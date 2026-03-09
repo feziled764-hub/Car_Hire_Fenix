@@ -3,21 +3,328 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fenix Car Hire | Premium Vehicle Rental in Eswatini</title>
+<title>Fenix Car Hire | Reliable Vehicle Rental in Eswatini</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* HOME PAGE SPECIFIC STYLES */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+}
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 60px 5%;
+    background: white;
+    max-width: 1200px;
+    margin: -80px auto 0;
+    position: relative;
+    z-index: 10;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1a4a8d;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat-number span {
+    color: #00A8E8;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.why-choose-section {
+    padding: 100px 5%;
+    background: #f8f9fc;
+}
+
+.why-choose-section h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #1a4a8d;
+    margin-bottom: 20px;
+}
+
+.why-choose-section > p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    color: #666;
+    font-size: 18px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-card {
+    background: white;
+    padding: 40px 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1a4a8d, #00A8E8);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.why-card:hover::before {
+    transform: scaleX(1);
+}
+
+.why-card .icon-box {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1a4a8d 0%, #00A8E8 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 32px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.why-card:hover .icon-box {
+    transform: rotateY(180deg);
+}
+
+.why-card h3 {
+    color: #1a4a8d;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.why-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.fleet-preview {
+    padding: 100px 5%;
+    background: white;
+}
+
+.fleet-preview h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #1a4a8d;
+    margin-bottom: 20px;
+}
+
+.fleet-preview > p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    color: #666;
+    font-size: 18px;
+}
+
+.fleet-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.fleet-preview-card {
+    background: #f8f9fc;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.fleet-preview-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.fleet-preview-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.fleet-preview-card:hover img {
+    transform: scale(1.05);
+}
+
+.fleet-preview-card .card-body {
+    padding: 30px;
+}
+
+.fleet-preview-card h3 {
+    color: #1a4a8d;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.fleet-preview-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.view-all-btn {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.view-all-btn a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #1a4a8d, #00A8E8);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 168, 232, 0.4);
+}
+
+.cta-section {
+    background: linear-gradient(135deg, rgba(26, 74, 141, 0.95), rgba(13, 47, 95, 0.98)), 
+                url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 5%;
+    text-align: center;
+    color: white;
+}
+
+.cta-section h2 {
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 20px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons a {
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .primary-btn {
+    background: #00A8E8;
+    color: white;
+}
+
+.cta-buttons .primary-btn:hover {
+    background: #0090c8;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 168, 232, 0.4);
+}
+
+.cta-buttons .outline-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-buttons .outline-btn:hover {
+    background: white;
+    color: #1a4a8d;
+}
+
+@media (max-width: 968px) {
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+        margin: -60px 20px 0;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-section {
+        grid-template-columns: 1fr;
+        margin: -40px 15px 0;
+    }
+    
+    .cta-section h2 {
+        font-size: 28px;
+    }
+}
+</style>
 </head>
 <body>
 
 <nav>
     <div class="logo">FENIX CAR HIRE</div>
     <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="book.html">Book Now</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="Terms & Conditions.html">Terms</a></li>
     </ul>
 </nav>
 
@@ -32,101 +339,111 @@
     <div class="hero-text">
         <h1 class="main-company-name">FENIX CAR HIRE</h1>
         <h2>Drive Your Dream Forward</h2>
-        <p>Premium Vehicle Rental Services in the Kingdom of Eswatini</p>
+        <p>Reliable Vehicle Rental Services in the Kingdom of Eswatini</p>
         <div class="btn-group">
-            <button onclick="location.href='#booking'">Book Now</button>
-            <button class="btn-outline" onclick="location.href='fleet.html'">View Fleet</button>
-            <button class="btn-outline" onclick="location.href='contact.html'">Contact Us</button>
+            <button onclick="location.href='book.html'"><i class="fas fa-calendar-check"></i> Book Now</button>
+            <button class="btn-outline" onclick="location.href='fleet.html'"><i class="fas fa-car"></i> View Fleet</button>
+            <button class="btn-outline" onclick="location.href='contact.html'"><i class="fas fa-phone"></i> Contact Us</button>
         </div>
     </div>
 </section>
 
-<section class="welcome-section">
-    <h2>Welcome to Fenix Car Hire</h2>
-    <p>Experience premium car rental services where convenience, reliability, and affordability come together. Whether you need a vehicle for business travel, family trips, or corporate events, we provide a diverse fleet to meet your every need.</p>
+<section class="stats-section">
+    <div class="stat-item">
+        <div class="stat-number">500<span>+</span></div>
+        <div class="stat-label">Happy Customers</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">15<span>+</span></div>
+        <div class="stat-label">Vehicles Available</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">5<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">24<span>/7</span></div>
+        <div class="stat-label">Customer Support</div>
+    </div>
+</section>
+
+<section class="why-choose-section">
+    <h2>Why Choose Fenix Car Hire?</h2>
+    <p>We are committed to providing you with the best car rental experience in Eswatini.</p>
     
-    <div class="social-buttons">
-        <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-        </a>
-        <a href="https://facebook.com/fenix.carhire" class="facebook-btn" target="_blank">
-            <i class="fab fa-facebook-f"></i> Follow on Facebook
-        </a>
+    <div class="why-grid">
+        <div class="why-card">
+            <div class="icon-box"><i class="fas fa-car-side"></i></div>
+            <h3>Wide Vehicle Selection</h3>
+            <p>From economy sedans to rugged pickups and luxury vehicles, we have the perfect car for every occasion and budget.</p>
+        </div>
+        <div class="why-card">
+            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+            <h3>Fully Insured Vehicles</h3>
+            <p>All our vehicles come with comprehensive insurance coverage, giving you complete peace of mind on every journey.</p>
+        </div>
+        <div class="why-card">
+            <div class="icon-box"><i class="fas fa-tags"></i></div>
+            <h3>Competitive Pricing</h3>
+            <p>Transparent pricing with no hidden fees. We offer the best rates for quality vehicle rentals in the region.</p>
+        </div>
+        <div class="why-card">
+            <div class="icon-box"><i class="fas fa-headset"></i></div>
+            <h3>24/7 Support</h3>
+            <p>Our dedicated support team is available around the clock to assist you with any questions or concerns.</p>
+        </div>
+        <div class="why-card">
+            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>Convenient Locations</h3>
+            <p>Easy pickup and delivery options throughout Eswatini, including airport transfers and hotel delivery.</p>
+        </div>
+        <div class="why-card">
+            <div class="icon-box"><i class="fas fa-tools"></i></div>
+            <h3>Well-Maintained Fleet</h3>
+            <p>Every vehicle in our fleet undergoes regular maintenance and thorough cleaning for your safety and comfort.</p>
+        </div>
     </div>
 </section>
 
-<section class="features-grid">
-    <div class="feature-card">
-        <div class="icon"><i class="fas fa-car"></i></div>
-        <h3>Wide Fleet Selection</h3>
-        <p>From economy sedans to luxury vehicles and rugged pickups, find the perfect vehicle for any occasion.</p>
-    </div>
-    <div class="feature-card">
-        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>Fully Insured</h3>
-        <p>All our vehicles come with comprehensive insurance coverage for your peace of mind.</p>
-    </div>
-    <div class="feature-card">
-        <div class="icon"><i class="fas fa-clock"></i></div>
-        <h3>24/7 Support</h3>
-        <p>Round-the-clock customer support to assist you whenever you need help.</p>
-    </div>
-    <div class="feature-card">
-        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-        <h3>Nationwide Service</h3>
-        <p>Serving all regions of Eswatini with convenient pickup and delivery options.</p>
-    </div>
-</section>
-
-<section class="booking-section" id="booking">
-    <div class="booking-container">
-        <div class="booking-info">
-            <h2>Book Your Vehicle Today</h2>
-            <p>Reserve your preferred vehicle in just a few simple steps. We offer competitive rates and flexible rental periods.</p>
-            <ul>
-                <li>No hidden fees or charges</li>
-                <li>Free cancellation up to 24 hours</li>
-                <li>Airport pickup and delivery available</li>
-                <li>Corporate accounts welcome</li>
-                <li>Long-term rental discounts</li>
-            </ul>
-            <div class="social-buttons" style="justify-content: flex-start;">
-                <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Book via WhatsApp
-                </a>
+<section class="fleet-preview">
+    <h2>Our Popular Vehicles</h2>
+    <p>Explore some of our most requested vehicles for rental</p>
+    
+    <div class="fleet-preview-grid">
+        <div class="fleet-preview-card">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80" alt="Economy Sedan">
+            <div class="card-body">
+                <h3>Economy Sedan</h3>
+                <p>Fuel-efficient and affordable, perfect for city driving and daily commutes.</p>
             </div>
         </div>
-        
-        <div class="booking-form">
-            <h3>Quick Booking Form</h3>
-            <form action="mailto:reception@fenix.co.sz" method="post" enctype="text/plain">
-                <div class="form-row">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
-                </div>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <select name="vehicle" required>
-                    <option value="">Select Vehicle Type</option>
-                    <option value="Economy Sedan">Economy Sedan</option>
-                    <option value="SUV">SUV</option>
-                    <option value="Luxury Car">Luxury Car</option>
-                    <option value="Double Cab Pickup">Double Cab Pickup</option>
-                </select>
-                <div class="form-row">
-                    <input type="date" name="pickup_date" placeholder="Pickup Date" required>
-                    <input type="date" name="return_date" placeholder="Return Date" required>
-                </div>
-                <select name="pickup_location">
-                    <option value="">Pickup Location</option>
-                    <option value="Mbabane Office">Mbabane Office</option>
-                    <option value="King Mswati III Airport">King Mswati III Airport</option>
-                    <option value="Manzini">Manzini</option>
-                    <option value="Other">Other (specify in notes)</option>
-                </select>
-                <textarea name="notes" rows="3" placeholder="Additional notes or requirements"></textarea>
-                <button type="submit">Submit Booking Request</button>
-            </form>
+        <div class="fleet-preview-card">
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" alt="SUV Vehicle">
+            <div class="card-body">
+                <h3>SUV Vehicle</h3>
+                <p>Spacious and comfortable, ideal for family trips and adventures.</p>
+            </div>
         </div>
+        <div class="fleet-preview-card">
+            <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80" alt="Double Cab Pickup">
+            <div class="card-body">
+                <h3>Double Cab Pickup</h3>
+                <p>Rugged and versatile for work sites and outdoor activities.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="view-all-btn">
+        <a href="fleet.html"><i class="fas fa-car"></i> View All Vehicles</a>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Ready to Hit the Road?</h2>
+    <p>Book your vehicle today and experience the freedom of reliable transportation in Eswatini.</p>
+    <div class="cta-buttons">
+        <a href="book.html" class="primary-btn"><i class="fas fa-calendar-check"></i> Book Online</a>
+        <a href="https://wa.me/26876829797" class="outline-btn" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
     </div>
 </section>
 
@@ -134,7 +451,7 @@
     <div class="footer-content">
         <div class="footer-section">
             <h3>Fenix Car Hire</h3>
-            <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini. Drive your dream forward with us.</p>
+            <p>Your trusted partner for reliable vehicle rental services in the Kingdom of Eswatini. Drive your dream forward with us.</p>
         </div>
         <div class="footer-section">
             <h3>Quick Links</h3>
@@ -145,10 +462,10 @@
         </div>
         <div class="footer-section">
             <h3>Contact Us</h3>
-            <p>Litsemba Street, Lilanga Complex<br>Sidwashini, Mbabane</p>
-            <p>Phone: +268 2422 1045</p>
-            <p>Cell: +268 7682 9797</p>
-            <p>Email: reception@fenix.co.sz</p>
+            <p><i class="fas fa-map-marker-alt"></i> Litsemba Street, Lilanga Complex, Sidwashini, Mbabane</p>
+            <p><i class="fas fa-phone"></i> +268 2422 1045</p>
+            <p><i class="fas fa-mobile-alt"></i> +268 7682 9797</p>
+            <p><i class="fas fa-envelope"></i> reception@fenix.co.sz</p>
         </div>
         <div class="footer-section">
             <h3>Connect With Us</h3>
