@@ -1,189 +1,308 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us | Fenix Car Hire</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-
-body{
-font-family: Arial;
-margin:0;
-
+.page-header {
+    background: linear-gradient(135deg, rgba(26, 74, 141, 0.9), rgba(13, 47, 95, 0.95)), 
+                url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 5%;
+    text-align: center;
+    color: white;
 }
 
-/* HEADER */
-
-header{
-background:#1a4a8d;
-
-color:white;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+.page-header h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
+.page-header p {
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-nav a:hover{
-text-decoration:underline;
+.about-intro {
+    padding: 80px 5%;
+    background: white;
+    text-align: center;
 }
 
-/* PAGE HEADER */
-
-.page-header{
-background:#f4f4f4;
-padding:60px;
-text-align:center;
+.about-intro h2 {
+    color: #1a4a8d;
+    font-size: 32px;
+    margin-bottom: 30px;
 }
 
-.page-header h1{
-color:#1a4a8d;
-font-size:40px;
+.about-intro p {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    font-size: 17px;
+    color: #555;
+    line-height: 1.8;
 }
 
-/* ABOUT SECTION */
-
-.about{
-padding:60px;
-line-height:1.8;
-text-align:center;
+.values-section {
+    padding: 80px 5%;
+    background: #f8f9fc;
 }
 
-
-/* GRID SECTION */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-padding:40px;
+.values-section h2 {
+    text-align: center;
+    color: #1a4a8d;
+    font-size: 32px;
+    margin-bottom: 50px;
 }
 
-.card{
-background:grey;
-padding:25px;
-border-radius:8px;
-box-shadow:0px 0px 5px rgba(0,0,0,0.3);
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* FOOTER */
-
-footer{
-background:blue;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:40px;
+.value-card {
+    background: white;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 5px solid #00A8E8;
 }
 
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.value-card .icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #1a4a8d, #00A8E8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: white;
+    font-size: 28px;
+}
+
+.value-card h3 {
+    color: #1a4a8d;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.core-values {
+    padding: 80px 5%;
+    background: linear-gradient(135deg, #1a4a8d 0%, #0d2f5f 100%);
+    color: white;
+    text-align: center;
+}
+
+.core-values h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.core-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.core-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.core-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.core-item i {
+    color: #00A8E8;
+}
+
+.cta-section {
+    padding: 80px 5%;
+    text-align: center;
+    background: white;
+}
+
+.cta-section h2 {
+    color: #1a4a8d;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 32px;
+    }
+    
+    .core-item {
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+}
 </style>
 </head>
 <body>
 
 <nav>
-<div class="logo">FENIX CAR HIRE</div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="fleet.html">Fleet</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="Terms & Conditions.html">Terms & Conditions</a></li>
-</ul>
+    <div class="logo">FENIX CAR HIRE</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Terms & Conditions.html">Terms</a></li>
+    </ul>
 </nav>
 
-<section class="section">
-<h1>About Fenix Car Hire</h1>
-
+<section class="page-header">
+    <h1>About Fenix Car Hire</h1>
+    <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini</p>
 </section>
 
-
-<section class="about">
-
-<p>
-
-Fenix Car Hire is a professional vehicle rental company based in the Kingdom of Eswatini.<br> 
-The company provides reliable, safe and cost-effective mobility solutions to corporate,<br>
-government, NGO and private clients across the country.The company operate from Lilanga<br>
-Complex, Unit B, Sidvwashini, is committed to delivering dependable transport services <br>
-supported by a well maintained fleet and customer-focused operations.
-
-</p>
-
-<br><br><p>
-
-Our company is committed to delivering dependable transport services supported by<br>
-a well-maintained fleet, experienced drivers and strong customer service.<br>
-We aim to provide flexible vehicle rental solutions that meet the needs<br>
-of individuals, businesses and organizations.
-
-</p>
-
+<section class="about-intro">
+    <h2><i class="fas fa-building" style="color: #00A8E8;"></i> Who We Are</h2>
+    <p>Fenix Car Hire is a professional vehicle rental company based in the Kingdom of Eswatini. We provide reliable, safe, and cost-effective mobility solutions to corporate, government, NGO, and private clients across the country.</p>
+    <p>Operating from our headquarters at Lilanga Complex, Unit B, Sidwashini, we are committed to delivering dependable transport services supported by a well-maintained fleet and customer-focused operations.</p>
+    <p>Our team of experienced professionals ensures that every rental experience exceeds expectations, whether you need a vehicle for business travel, personal trips, or corporate events.</p>
 </section>
 
+<section class="values-section">
+    <h2><i class="fas fa-bullseye" style="color: #00A8E8;"></i> Our Purpose</h2>
+    
+    <div class="values-grid">
+        <div class="value-card">
+            <div class="icon"><i class="fas fa-eye"></i></div>
+            <h3>Our Vision</h3>
+            <p>To become Eswatini's leading and most trusted vehicle rental company, recognized for service excellence, reliability, and unwavering commitment to customer satisfaction.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="icon"><i class="fas fa-rocket"></i></div>
+            <h3>Our Mission</h3>
+            <p>To deliver safe, reliable, and affordable vehicle rental services through a well-maintained fleet, professional staff, and efficient operational systems that consistently exceed customer expectations.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="icon"><i class="fas fa-handshake"></i></div>
+            <h3>Our Promise</h3>
+            <p>We promise to provide transparent pricing, exceptional customer service, and vehicles that are always clean, safe, and ready for your journey.</p>
+        </div>
+    </div>
+</section>
 
-<section class="grid">
+<section class="core-values">
+    <h2><i class="fas fa-heart"></i> Our Core Values</h2>
+    
+    <div class="core-list">
+        <div class="core-item"><i class="fas fa-check-circle"></i> Reliability</div>
+        <div class="core-item"><i class="fas fa-user-tie"></i> Professionalism</div>
+        <div class="core-item"><i class="fas fa-users"></i> Customer Focus</div>
+        <div class="core-item"><i class="fas fa-shield-alt"></i> Integrity</div>
+        <div class="core-item"><i class="fas fa-car-crash"></i> Safety First</div>
+        <div class="core-item"><i class="fas fa-star"></i> Excellence</div>
+    </div>
+</section>
 
-<div class="card">
+<section class="cta-section">
+    <h2>Ready to Experience the Fenix Difference?</h2>
+    <p>Contact us today to discuss your vehicle rental needs or browse our fleet.</p>
+    <div class="social-buttons">
+        <a href="contact.html" class="btn" style="background: #1a4a8d;">
+            <i class="fas fa-envelope"></i> Contact Us
+        </a>
+        <a href="fleet.html" class="btn">
+            <i class="fas fa-car"></i> View Our Fleet
+        </a>
+        <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+</section>
 
-<h2>Our Vision</h2>
-
-<p>
-
-To become Eswatini’s leading and most trusted vehicle rental company
-recognized for service excellence, reliability and customer satisfaction.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h2>Our Mission</h2>
-
-<p>
-
-To deliver safe, reliable and affordable vehicle rental services through
-a well-maintained fleet, professional staff and efficient operational systems
-that consistently exceed customer expectations.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h2>Core Values</h2>
-
-<p>
-
-Reliability<br>
-Professionalism<br>
-Customer Focus<br>
-Integrity<br>
-Safety
-
-</p>
-
-</div>
-
-</section><br>
-
-
-<button onclick="location.href='contact.html'">For More Info</button>
 <footer>
-
-<p>© 2026 Fenix Car Hire | Drive Your Dream Forward</p>
-
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Fenix Car Hire</h3>
+            <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="fleet.html">Vehicle Fleet</a>
+            <a href="Terms & Conditions.html">Terms & Conditions</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Litsemba Street, Lilanga Complex<br>Sidwashini, Mbabane</p>
+            <p>Phone: +268 2422 1045</p>
+            <p>Cell: +268 7682 9797</p>
+        </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-buttons" style="justify-content: flex-start; margin-top: 0;">
+                <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/fenix.carhire" class="facebook-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Fenix Car Hire | All Rights Reserved</p>
+    </div>
 </footer>
+
+<!-- Floating Social Buttons -->
+<div class="floating-social">
+    <a href="https://wa.me/26876829797" class="whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://facebook.com/fenix.carhire" class="facebook" target="_blank" title="Follow on Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
 
 </body>
 </html>

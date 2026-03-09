@@ -1,221 +1,285 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Fleet | Fenix Car Hire</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f4f4f4;
+.page-header {
+    background: linear-gradient(135deg, rgba(26, 74, 141, 0.9), rgba(13, 47, 95, 0.95)), 
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 5%;
+    text-align: center;
+    color: white;
 }
 
-/* HEADER */
-
-header{
-background:#1a4a8d;
-color:white;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-box-shadow:0px 2px 10px rgba(0,0,0,0.2);
+.page-header h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-padding:8px 14px;
-border-radius:6px;
-transition:0.3s;
+.page-header p {
+    font-size: 18px;
+    opacity: 0.9;
 }
 
-nav a:hover{
-background:white;
-color:#1a4a8d;
+.fleet-section {
+    padding: 80px 5%;
+    background: #f8f9fc;
 }
 
-/* PAGE HEADER */
-
-.page-header{
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
-background-size:cover;
-background-position:center;
-padding:120px 20px;
-text-align:center;
-color:white;
+.fleet-section h2 {
+    text-align: center;
+    color: #1a4a8d;
+    font-size: 32px;
+    margin-bottom: 50px;
 }
 
-.page-header h1{
-font-size:50px;
-margin-bottom:10px;
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-/* FLEET GRID */
-
-.fleet{
-padding:70px 40px;
+.fleet-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
+.fleet-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
 }
 
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0px 10px 30px rgba(0,0,0,0.08);
-text-align:center;
-transition:0.4s;
+.fleet-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
-.card:hover{
-transform:translateY(-12px);
-box-shadow:0px 15px 40px rgba(0,0,0,0.18);
+.fleet-card-content {
+    padding: 30px;
 }
 
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
+.fleet-card h3 {
+    color: #1a4a8d;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
-.card-content{
-padding:25px;
+.fleet-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
-.card h3{
-color:#1a4a8d;
-margin-bottom:10px;
+.fleet-card .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.price{
-font-size:20px;
-color:#25a244;
-font-weight:bold;
-margin:15px 0;
+.fleet-card .feature {
+    background: #f0f7ff;
+    color: #1a4a8d;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
 }
 
-.btn{
-background:#1a4a8d;
-color:white;
-padding:12px 20px;
-text-decoration:none;
-border-radius:6px;
-display:inline-block;
-margin-top:10px;
+.fleet-card .btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    background: linear-gradient(135deg, #1a4a8d, #00A8E8);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-/* FOOTER */
-
-footer{
-background:blue;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:40px;
+.fleet-card .btn:hover {
+    background: linear-gradient(135deg, #0d2f5f, #1a4a8d);
+    transform: translateY(-2px);
 }
 
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-header{
-flex-direction:column;
-text-align:center;
+.cta-banner {
+    background: linear-gradient(135deg, #1a4a8d 0%, #0d2f5f 100%);
+    padding: 60px 5%;
+    text-align: center;
+    color: white;
 }
 
-nav{
-margin-top:15px;
+.cta-banner h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
 }
 
-.page-header h1{
-font-size:35px;
+.cta-banner p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
 }
 
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 32px;
+    }
 }
-
 </style>
 </head>
 <body>
 
 <nav>
-<div class="logo">FENIX CAR HIRE</div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="fleet.html">Fleet</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="Terms & Conditions.html">Terms & Conditions</a></li>
-</ul>
+    <div class="logo">FENIX CAR HIRE</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Terms & Conditions.html">Terms</a></li>
+    </ul>
 </nav>
 
-<section class="section">
-<h1>Our Vehicle Fleet</h1>
-<p>Choose from our premium range of reliable vehicles</p>
-
+<section class="page-header">
+    <h1>Our Vehicle Fleet</h1>
+    <p>Choose from our premium range of well-maintained, reliable vehicles</p>
 </section>
 
-
-<section class="fleet">
-
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80" alt="Economy Sedan">
-<div class="card-content">
-<h3>Economy Sedan</h3>
-<p>Fuel efficient and affordable daily transport.</p>
-<a href="book.html" class="btn">Book Now</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" alt="SUV Vehicle">
-<div class="card-content">
-<h3>SUV Vehicle</h3>
-<p>Comfortable long distance travel SUV.</p>
-<a href="book.html" class="btn">Book Now</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80" alt="Double Cab Pickup">
-<div class="card-content">
-<h3>Double Cab Pickup</h3>
-<p>Strong work and outdoor travel vehicle.</p>
-<a href="book.html" class="btn">Book Now</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="Luxury Executive">
-<div class="card-content">
-<h3>Luxury Executive</h3>
-<p>VIP and corporate luxury transport.</p>
-<a href="book.html" class="btn">Book Now</a>
-</div>
-</div>
-
-</div>
-
+<section class="fleet-section">
+    <h2><i class="fas fa-car" style="color: #00A8E8;"></i> Available Vehicles</h2>
+    
+    <div class="fleet-grid">
+        <div class="fleet-card">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80" alt="Economy Sedan">
+            <div class="fleet-card-content">
+                <h3>Economy Sedan</h3>
+                <p>Fuel-efficient and affordable, perfect for daily commutes and city driving.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-gas-pump"></i> Fuel Efficient</span>
+                    <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
+                    <span class="feature"><i class="fas fa-snowflake"></i> A/C</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" alt="SUV Vehicle">
+            <div class="fleet-card-content">
+                <h3>SUV Vehicle</h3>
+                <p>Spacious and comfortable, ideal for family trips and long-distance travel.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-mountain"></i> All-Terrain</span>
+                    <span class="feature"><i class="fas fa-users"></i> 7 Seats</span>
+                    <span class="feature"><i class="fas fa-suitcase"></i> Large Boot</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=600&q=80" alt="Double Cab Pickup">
+            <div class="fleet-card-content">
+                <h3>Double Cab Pickup</h3>
+                <p>Rugged and versatile, perfect for work sites and outdoor adventures.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-truck"></i> Heavy Duty</span>
+                    <span class="feature"><i class="fas fa-users"></i> 5 Seats</span>
+                    <span class="feature"><i class="fas fa-box"></i> Cargo Bed</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+        
+        <div class="fleet-card">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="Luxury Executive">
+            <div class="fleet-card-content">
+                <h3>Luxury Executive</h3>
+                <p>Premium comfort and style for VIP clients and special occasions.</p>
+                <div class="features">
+                    <span class="feature"><i class="fas fa-star"></i> Premium</span>
+                    <span class="feature"><i class="fas fa-couch"></i> Leather</span>
+                    <span class="feature"><i class="fas fa-wifi"></i> Connected</span>
+                </div>
+                <a href="book.html" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+        </div>
+    </div>
 </section>
 
+<section class="cta-banner">
+    <h2>Need Help Choosing?</h2>
+    <p>Our team is ready to help you find the perfect vehicle for your needs.</p>
+    <div class="social-buttons">
+        <a href="https://wa.me/26876829797?text=Hello%20Fenix,%20I%20need%20help%20choosing%20a%20vehicle." class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <a href="contact.html" class="btn" style="background: white; color: #1a4a8d;">
+            <i class="fas fa-phone"></i> Contact Us
+        </a>
+    </div>
+</section>
 
 <footer>
-<p>© 2026 Fenix Car Hire | Drive Your Dream Forward</p>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Fenix Car Hire</h3>
+            <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="fleet.html">Vehicle Fleet</a>
+            <a href="Terms & Conditions.html">Terms & Conditions</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Litsemba Street, Lilanga Complex<br>Sidwashini, Mbabane</p>
+            <p>Phone: +268 2422 1045</p>
+            <p>Cell: +268 7682 9797</p>
+        </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-buttons" style="justify-content: flex-start; margin-top: 0;">
+                <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/fenix.carhire" class="facebook-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Fenix Car Hire | All Rights Reserved</p>
+    </div>
 </footer>
+
+<!-- Floating Social Buttons -->
+<div class="floating-social">
+    <a href="https://wa.me/26876829797" class="whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://facebook.com/fenix.carhire" class="facebook" target="_blank" title="Follow on Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
 
 </body>
 </html>
-

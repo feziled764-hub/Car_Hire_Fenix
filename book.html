@@ -1,195 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Now - Fenix Car Hire</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f4f6fb;
+.page-header {
+    background: linear-gradient(135deg, #1a4a8d 0%, #0d2f5f 100%);
+    padding: 80px 5%;
+    text-align: center;
+    color: white;
 }
 
-/* HEADER */
-
-header{
-background:#1a4a8d;
-color:white;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-box-shadow:0 3px 12px rgba(0,0,0,0.2);
+.page-header h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
 }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-padding:8px 14px;
-border-radius:6px;
-transition:0.3s;
+.page-header p {
+    font-size: 18px;
+    opacity: 0.9;
 }
 
-nav a:hover{
-background:white;
-color:#1a4a8d;
+.book-container {
+    max-width: 700px;
+    margin: -50px auto 60px;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 10;
 }
 
-/* BOOK SECTION */
-
-.book-container{
-max-width:600px;
-margin:60px auto;
-background:white;
-padding:40px;
-border-radius:15px;
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
-animation:fadeIn 1s ease;
+.book-container h2 {
+    text-align: center;
+    color: #1a4a8d;
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
-.book-container h2{
-text-align:center;
-color:#1a4a8d;
-margin-bottom:25px;
+.form-group {
+    margin-bottom: 20px;
 }
 
-/* FORM */
-
-input, select, textarea{
-width:100%;
-padding:14px;
-margin-top:12px;
-border:1px solid #ddd;
-border-radius:8px;
-transition:0.3s;
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
 }
 
-input:focus, select:focus, textarea:focus{
-border-color:#1a4a8d;
-outline:none;
-box-shadow:0 0 8px rgba(26,74,141,0.2);
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-button{
-width:100%;
-padding:15px;
-margin-top:20px;
-background:#1a4a8d;
-color:white;
-border:none;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
+input, select, textarea {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f8f9fc;
 }
 
-button:hover{
-background:#0d2f5f;
-transform:scale(1.03);
+input:focus, select:focus, textarea:focus {
+    border-color: #00A8E8;
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(0, 168, 232, 0.1);
 }
 
-/* WHATSAPP BUTTON */
-
-.whatsapp-btn{
-display:block;
-text-align:center;
-background:#25D366;
-color:white;
-padding:14px;
-margin-top:15px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #1a4a8d, #00A8E8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
 }
 
-/* ANIMATION */
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 168, 232, 0.4);
 }
 
-footer{
-background:blue;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:40px;
+.or-divider {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
 }
 
+.or-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.or-divider span {
+    background: white;
+    padding: 0 20px;
+    color: #999;
+    font-weight: 500;
+    position: relative;
+}
+
+.alt-booking {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.back-btn:hover {
+    background: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .book-container {
+        margin: -30px 20px 40px;
+        padding: 30px 20px;
+    }
+    
+    .alt-booking {
+        flex-direction: column;
+    }
+}
 </style>
-
 </head>
-
 <body>
 
-<header>
-
 <nav>
-<div class="logo">FENIX CAR HIRE</div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="fleet.html">Fleet</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="Terms & Conditions.html">Terms & Conditions</a></li>
-</ul>
+    <div class="logo">FENIX CAR HIRE</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="fleet.html">Fleet</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Terms & Conditions.html">Terms</a></li>
+    </ul>
 </nav>
 
-</header>
-
+<div class="page-header">
+    <h1>Book Your Vehicle</h1>
+    <p>Complete the form below to reserve your preferred vehicle</p>
+</div>
 
 <div class="book-container">
-
-<h2>Book Your Vehicle</h2>
-
-<form>
-
-<input type="text" placeholder="Full Name" required>
-
-<input type="email" placeholder="Email Address" required>
-
-<input type="tel" placeholder="Phone Number" required>
-
-<select required>
-<option value="">Select Vehicle Type</option>
-<option>Sedan</option>
-<option>SUV</option>
-<option>Luxury Car</option>
-<option>Pickup Truck</option>
-</select>
-
-<input type="date" required>
-
-<input type="number" placeholder="Number of Rental Days" required>
-
-<textarea rows="4" placeholder="Additional Requirements"></textarea>
-
-<button type="submit">CONFIRM BOOKING</button>
-
-</form>
-
-<a href="https://wa.me/26876829797" class="whatsapp-btn">
-Book via WhatsApp
-</a>
-
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    
+    <h2><i class="fas fa-car" style="color: #00A8E8;"></i> Reservation Form</h2>
+    
+    <form action="mailto:reception@fenix.co.sz" method="post" enctype="text/plain">
+        <div class="form-group">
+            <label>Personal Information</label>
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Vehicle Selection</label>
+            <select name="vehicle" required>
+                <option value="">Select Vehicle Type</option>
+                <option value="Economy Sedan">Economy Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Luxury Executive">Luxury Executive</option>
+                <option value="Double Cab Pickup">Double Cab Pickup</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Rental Period</label>
+            <div class="form-row">
+                <div>
+                    <input type="date" name="pickup_date" required>
+                    <small style="color: #666;">Pickup Date</small>
+                </div>
+                <div>
+                    <input type="date" name="return_date" required>
+                    <small style="color: #666;">Return Date</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Pickup Location</label>
+            <select name="pickup_location" required>
+                <option value="">Select Pickup Location</option>
+                <option value="Mbabane Office">Mbabane Office - Lilanga Complex</option>
+                <option value="King Mswati III Airport">King Mswati III International Airport</option>
+                <option value="Manzini">Manzini</option>
+                <option value="Matsapha">Matsapha Industrial Area</option>
+                <option value="Other">Other Location (specify below)</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Additional Requirements</label>
+            <textarea name="requirements" rows="4" placeholder="Any special requests, child seats, GPS, driver requirements, etc."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Submit Booking Request
+        </button>
+    </form>
+    
+    <div class="or-divider">
+        <span>OR BOOK DIRECTLY</span>
+    </div>
+    
+    <div class="alt-booking">
+        <a href="https://wa.me/26876829797?text=Hello%20Fenix%20Car%20Hire,%20I%20would%20like%20to%20book%20a%20vehicle." class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+        </a>
+        <a href="tel:+26876829797" class="btn" style="background: #1a4a8d;">
+            <i class="fas fa-phone"></i> Call: +268 7682 9797
+        </a>
+    </div>
 </div>
-<button onclick="location.href='index.html'">Back</button>
+
 <footer>
-<p>© 2026 Fenix Car Hire | Drive Your Dream Forward</p>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Fenix Car Hire</h3>
+            <p>Your trusted partner for premium vehicle rental services in the Kingdom of Eswatini.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="fleet.html">Vehicle Fleet</a>
+            <a href="Terms & Conditions.html">Terms & Conditions</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Litsemba Street, Lilanga Complex<br>Sidwashini, Mbabane</p>
+            <p>Phone: +268 2422 1045</p>
+            <p>Cell: +268 7682 9797</p>
+        </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-buttons" style="justify-content: flex-start; margin-top: 0;">
+                <a href="https://wa.me/26876829797" class="whatsapp-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/fenix.carhire" class="facebook-btn" target="_blank" style="padding: 10px 20px; font-size: 14px;">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Fenix Car Hire | All Rights Reserved</p>
+    </div>
 </footer>
+
+<!-- Floating Social Buttons -->
+<div class="floating-social">
+    <a href="https://wa.me/26876829797" class="whatsapp" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://facebook.com/fenix.carhire" class="facebook" target="_blank" title="Follow on Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
+
 </body>
 </html>
